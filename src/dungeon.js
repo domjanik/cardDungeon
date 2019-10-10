@@ -1,6 +1,7 @@
 const userStats = {
     overallGold: 0,
-    currentHP: 10
+    currentHP: 10,
+    userAttack: 0
 }
 
 const cardTable = [
