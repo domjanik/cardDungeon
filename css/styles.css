@@ -1,0 +1,13 @@
+.card-area {
+    display: flex;
+    width: 250px;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 75px;
+    height: 100px;
+    border: 1px solid #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } 
