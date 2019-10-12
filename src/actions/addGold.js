@@ -1,6 +1,6 @@
 function setGold(amount) {
     document.getElementById('gold-meter').innerHTML = amount;
-    userStats.overallGold += amount;
+    userStats.overallGold = amount;
 }
 
 function addGold(targetId) {
