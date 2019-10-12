@@ -25,8 +25,7 @@ const cardTypes = {
 }
 
 function createRandomCard() {
-    // let cardType = Math.floor((Math.random() % 3) * 3) + 1;
-    let cardType = 3;
+    let cardType = Math.floor((Math.random() % 3) * 3) + 1;
     let value = Math.floor((Math.random() % 10) * 10) + 1;
     cardId++;
     return new Card(cardType, value, cardId);
@@ -48,11 +47,7 @@ function generateMap() {
 
 function renderField(targetId) {
     let elem = document.getElementById(targetId);
-    elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value + ' ' + cardTable[targetId].id : '');
-    // if(cardTable[targetId].name !== 'user')
-    // elem.innerHTML = targetId;
-    // else 
-    // elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value : '');
+    elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value + ' ' : '');
 
 }
 
