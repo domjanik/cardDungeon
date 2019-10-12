@@ -3,7 +3,7 @@ const userStats = {
     currentHP: 10,
     userAttack: 0
 }
-
+let cardId = 0;
 const cardTable = [
     null,
     null,
@@ -17,47 +17,57 @@ const cardTable = [
 ]
 
 const cardTypes = {
-  0: 'user',
-  1: 'blank',
-  2: 'sword',
-  3: 'gold',
-  4: 'monster'
+    0: 'user',
+    1: 'blank',
+    2: 'sword',
+    3: 'gold',
+    4: 'monster'
 }
 
 function createRandomCard() {
-    let cardType = Math.floor((Math.random() % 4) * 4) + 1;
+    // let cardType = Math.floor((Math.random() % 3) * 3) + 1;
+    let cardType = 3;
     let value = Math.floor((Math.random() % 10) * 10) + 1;
-    return new Card(cardType, value);
+    cardId++;
+    return new Card(cardType, value, cardId);
 }
 
 function generateMap() {
     let elem = document.getElementById(4);
-    cardTable[4] = new Card(0);
-    renderField(4);
-
-    for(var i = 0; i < 9; i ++) {
-        if(!cardTable[i]) {
+    cardTable[1] = new Card(0);
+    renderField(1);
+    setGold(0);
+    for (var i = 0; i < 9; i++) {
+        if (!cardTable[i]) {
             const card = createRandomCard();
             cardTable[i] = card;
             renderField(i);
         }
     }
 }
+
 function renderField(targetId) {
     let elem = document.getElementById(targetId);
-    elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value : '');
+    elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value + ' ' + cardTable[targetId].id : '');
+    // if(cardTable[targetId].name !== 'user')
+    // elem.innerHTML = targetId;
+    // else 
+    // elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value : '');
+
 }
+
 function useCard(targetId) {
     if (isFieldAvailable(targetId)) {
         performCardAction(targetId);
     }
 }
+
 function performCardAction(targetId) {
     switch (cardTable[targetId].type) {
-        case 0: 
+        case 0:
             wait(targetId);
-            break; 
-        case 1: 
+            break;
+        case 1:
             move(targetId);
             break;
         case 2:
@@ -69,18 +79,20 @@ function performCardAction(targetId) {
         case 4:
             attack(targetId);
             break;
-        default: 
+        default:
             console.log('error');
             break;
     }
 }
+
 function isFieldAvailable(targetId) {
-    let userPosition = getCurrentUserPosition() ;
-    if(targetId === userPosition + 1 || targetId === userPosition - 1 || targetId === userPosition + 3 || targetId === userPosition - 3) {
+    let userPosition = getCurrentUserPosition();
+    if (targetId === userPosition + 1 || targetId === userPosition - 1 || targetId === userPosition + 3 || targetId === userPosition - 3) {
         return true;
-    } 
+    }
     return false;
 }
+
 function getCurrentUserPosition() {
     return cardTable.indexOf(cardTable.find((card) => card ? card.name === cardTypes[0] : false));
 }

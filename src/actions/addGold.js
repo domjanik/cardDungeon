@@ -1,6 +1,10 @@
+function setGold(amount) {
+    document.getElementById('gold-meter').innerHTML = amount;
+    userStats.overallGold += amount;
+}
+
 function addGold(targetId) {
-    userStats.overallGold += cardTable[targetId].value
-    console.log(`current gold : ${userStats.overallGold}`);
+    setGold(userStats.overallGold + cardTable[targetId].value);
     move(targetId);
 }
 

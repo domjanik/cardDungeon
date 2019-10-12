@@ -1,25 +1,27 @@
 <html>
-    <head>
-        <script src="src/actions/addGold.js"></script>
-        <script src="src/actions/addWeapon.js"></script>
-        <script src="src/actions/attack.js"></script>
-        <script src="src/actions/move.js"></script>
-        <script src="src/actions/wait.js"></script>
-        <script src="src/card.js"></script>
-        <script src="src/dungeon.js"></script>
-        <link href="css/styles.css" rel="stylesheet" type="text/css">
-    </head>
-    <body onload="generateMap()">
-        <div class="card-area">
-            <div class="card" id="0" onClick="useCard(0)">1</div>
-            <div class="card" id="1" onClick="useCard(1)">2</div>
-            <div class="card" id="2" onClick="useCard(2)">3</div>
-            <div class="card" id="3" onClick="useCard(3)">4</div>
-            <div class="card" id="4" onClick="useCard(4)">5</div>
-            <div class="card" id="5" onClick="useCard(5)">6</div>
-            <div class="card" id="6" onClick="useCard(6)">7</div>
-            <div class="card" id="7" onClick="useCard(7)">8</div>
-            <div class="card" id="8" onClick="useCard(8)">9</div>
-        </div>
-    </body>
+<head>
+    <script src="src/actions/addGold.js"></script>
+    <script src="src/actions/addWeapon.js"></script>
+    <script src="src/actions/attack.js"></script>
+    <script src="src/actions/move.js"></script>
+    <script src="src/actions/wait.js"></script>
+    <script src="src/card.js"></script>
+    <script src="src/dungeon.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="generateMap()">
+<div id="gold-meter">
+</div>
+<div class="card-area">
+    <div class="card" id="0" onClick="useCard(0)">1</div>
+    <div class="card" id="1" onClick="useCard(1)">2</div>
+    <div class="card" id="2" onClick="useCard(2)">3</div>
+    <div class="card" id="3" onClick="useCard(3)">4</div>
+    <div class="card" id="4" onClick="useCard(4)">5</div>
+    <div class="card" id="5" onClick="useCard(5)">6</div>
+    <div class="card" id="6" onClick="useCard(6)">7</div>
+    <div class="card" id="7" onClick="useCard(7)">8</div>
+    <div class="card" id="8" onClick="useCard(8)">9</div>
+</div>
+</body>
 </html>
