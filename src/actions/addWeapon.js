@@ -1,14 +1,16 @@
 function setAttack(value) {
-    if(value > userStats.userAttack) {
-        userStats.overallGold += userStats.userAttack;
-        userStats.userAttack = value;
-        document.getElementById('user-attack').innerHTML = value;
-        document.getElementById('gold-meter').innerHTML = userStats.overallGold;
-    }
+    console.log('setAttack');
+    userStats.userAttack = value;
+    document.getElementById('user-attack').innerHTML = value;
 }
 
 function addWeapon(targetId) {
     console.log('addWeapon');
-    setAttack(cardTable[targetId].value);
+    if (cardTable[targetId].value > userStats.userAttack) {
+        userStats.overallGold += userStats.userAttack;
+        document.getElementById('gold-meter').innerHTML = userStats.overallGold;
+
+        setAttack(cardTable[targetId].value);
+    }
     move(targetId);
 }

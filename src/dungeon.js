@@ -22,20 +22,18 @@ const cardTypes = {
     2: 'sword',
     3: 'gold',
     4: 'monster'
-}
+};
 
 function createRandomCard() {
-    let cardType = Math.floor((Math.random() % 3) * 3) + 1;
+    let cardType = Math.floor((Math.random() % 4) * 4) + 1;
     let value = Math.floor((Math.random() % 10) * 10) + 1;
     cardId++;
     return new Card(cardType, value, cardId);
 }
 
 function generateMap() {
-    let elem = document.getElementById(4);
-    cardTable[1] = new Card(0);
-    renderField(1);
-    setGold(0);
+    cardTable[4] = new Card(0);
+    renderField(4);
     for (var i = 0; i < 9; i++) {
         if (!cardTable[i]) {
             const card = createRandomCard();
@@ -43,11 +41,13 @@ function generateMap() {
             renderField(i);
         }
     }
+
 }
 
 function renderField(targetId) {
     let elem = document.getElementById(targetId);
     elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value + ' ' : '');
+    elem.style.backgroundColor = cardTable[targetId].color;
 
 }
 
@@ -92,3 +92,33 @@ function getCurrentUserPosition() {
     return cardTable.indexOf(cardTable.find((card) => card ? card.name === cardTypes[0] : false));
 }
 
+function initGame() {
+    setGold(0);
+    let elemHp = document.getElementById('user-health');
+    elemHp.innerHTML = userStats.currentHP;
+    let elemAtk = document.getElementById('user-attack');
+    elemAtk.innerHTML = userStats.userAttack;
+    generateMap();
+}
+
+function gameOver() {
+    console.log("You loose");
+    alert('You loose');
+}
+
+
+document.onkeydown = function (e) {
+    let targetId = getCurrentUserPosition();
+    if(e.keyCode === 37) {
+        targetId -= 1;
+    } else if (e.keyCode === 40) {
+        targetId += 3;
+    } else if (e.keyCode === 39) {
+        targetId += 1;
+    } else if (e.keyCode === 38) {
+        targetId -= 3;
+    } else {
+        return;
+    }
+    useCard(targetId)
+};

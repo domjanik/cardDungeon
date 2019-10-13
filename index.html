@@ -9,10 +9,20 @@
     <script src="src/dungeon.js"></script>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
-<body onload="generateMap()">
-<div id="gold-meter">
+<body onload="initGame()">
+<div class="info-label">
+    G:
+    <div id="gold-meter"></div>
 </div>
-<div id="user-attack"></div>
+<div class="info-label">
+    A:
+    <div id="user-attack"></div>
+</div>
+<div class="info-label">
+    HP:
+    <div id="user-health"></div>
+</div>
+
 <div class="card-area">
     <div class="card" id="0" onClick="useCard(0)">1</div>
     <div class="card" id="1" onClick="useCard(1)">2</div>
