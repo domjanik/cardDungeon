@@ -23,5 +23,15 @@ const cardTypes = {
         name: 'monster',
         color: '#ff3333',
         action: attack
+    },
+    POTION: {
+        name: 'potion',
+        color: '#008800',
+        action: addHP
+    },
+    CHEST: {
+        name: 'chest',
+        color: '#0088ff',
+        action: openChest
     }
 };

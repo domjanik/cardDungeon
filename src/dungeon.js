@@ -1,6 +1,7 @@
 const userStats = {
     overallGold: 0,
     currentHP: 10,
+    maxHP: 10,
     userAttack: 0
 }
 let cardId = 0;
