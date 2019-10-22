@@ -7,6 +7,11 @@
     <script src="src/actions/wait.js"></script>
     <script src="src/card.js"></script>
     <script src="src/dungeon.js"></script>
+    <script src="src/const/cardTypes.js"></script>
+    <script src="src/const/chanceTable.js"></script>
+    <script src="src/utils/setAttack.js"></script>
+    <script src="src/utils/setGold.js"></script>
+    <script src="src/utils/setHP.js"></script>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body onload="initGame()">
@@ -22,6 +27,8 @@
     HP:
     <div id="user-health"></div>
 </div>
+
+<button onclick="initGame()">Restart</button>
 
 <div class="card-area">
     <div class="card" id="0" onClick="useCard(0)">1</div>

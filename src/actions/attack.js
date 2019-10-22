@@ -7,25 +7,24 @@ function attack(targetId) {
             let value = Math.floor((Math.random() % card.value) * card.value) + 1;
             cardId++;
             setAttack(userStats.userAttack - card.value);
-            cardTable[targetId] = new Card(3, value, cardId);
+            cardTable[targetId] = new Card(cardTypes.GOLD, value, cardId);
             renderField(targetId);
         } else {
             card.value -= userStats.userAttack;
             if(card.value === 0) {
                 cardId++;
-                cardTable[targetId] = new Card(3, card.value, cardId);
+                cardTable[targetId] = new Card(cardTypes.GOLD, card.value, cardId);
             }
             setAttack(0);
             renderField(targetId);
         }
     } else {
-        userStats.currentHP -= card.value;
-        let elemHp = document.getElementById('user-health');
-        elemHp.innerHTML = userStats.currentHP;
-
         if(card.value < userStats.currentHP) {
+            setHP(userStats.currentHP - card.value);
             move(targetId);
         } else {
+            setHP(userStats.currentHP - card.value);
+
             gameOver();
         }
     }

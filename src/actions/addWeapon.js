@@ -1,8 +1,3 @@
-function setAttack(value) {
-    console.log('setAttack');
-    userStats.userAttack = value;
-    document.getElementById('user-attack').innerHTML = value;
-}
 
 function addWeapon(targetId) {
     console.log('addWeapon');
