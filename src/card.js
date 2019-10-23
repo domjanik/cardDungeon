@@ -3,7 +3,7 @@ class Card {
         this.type = type.name;
         this.name = type.name;
         this.id = id;
-        if (type.name !== 'user') {
+        if (type.name !== 'user' && type.name !== 'blank' && type.name !== 'chest') {
             this.value = value;
             this.initValue = value;
         }
