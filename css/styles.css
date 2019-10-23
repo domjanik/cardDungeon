@@ -17,9 +17,6 @@
     .game-table {
         width: 100% !important;
     }
-    .card {
-    calc(100 vh / 5);
-    }
 }
 
 .game-controls {
@@ -51,9 +48,11 @@
     display: flex;
     justify-content: space-between;
 }
-.game-stats [class^="icon-"],.game-stats  [class*=" icon-"] {
+
+.game-stats [class^="icon-"], .game-stats [class*=" icon-"] {
     font-size: 30px;
 }
+
 .card {
     width: calc(100% / 3.3);
     height: 100px;
@@ -68,7 +67,7 @@
     margin: 3px;
 }
 
-.card [class^="icon-"], .card  [class*=" icon-"] {
+.card [class^="icon-"], .card [class*=" icon-"] {
     font-size: 40px;
 }
 
