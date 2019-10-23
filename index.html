@@ -15,33 +15,40 @@
     <script src="src/utils/setGold.js"></script>
     <script src="src/utils/setHP.js"></script>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/icon-font.css" rel="stylesheet" type="text/css">
 </head>
 <body onload="initGame()">
-<div class="info-label">
-    G:
-    <div id="gold-meter"></div>
-</div>
-<div class="info-label">
-    A:
-    <div id="user-attack"></div>
-</div>
-<div class="info-label">
-    HP:
-    <div id="user-health"></div>
-</div>
-
-<button onclick="initGame()">Restart</button>
-
-<div class="card-area">
-    <div class="card" id="0" onClick="useCard(0)">1</div>
-    <div class="card" id="1" onClick="useCard(1)">2</div>
-    <div class="card" id="2" onClick="useCard(2)">3</div>
-    <div class="card" id="3" onClick="useCard(3)">4</div>
-    <div class="card" id="4" onClick="useCard(4)">5</div>
-    <div class="card" id="5" onClick="useCard(5)">6</div>
-    <div class="card" id="6" onClick="useCard(6)">7</div>
-    <div class="card" id="7" onClick="useCard(7)">8</div>
-    <div class="card" id="8" onClick="useCard(8)">9</div>
+<div class="game-area">
+    <div class="game-table">
+        <div class="game-stats">
+            <div class="info-label">
+                 <div class="icon-rich"></div>
+                <div id="gold-meter"></div>
+            </div>
+            <div class="info-label">
+                <div class="icon-swords"></div>
+                <div id="user-attack"></div>
+            </div>
+            <div class="info-label">
+                <div class="icon-health"></div>
+                <div id="user-health"></div>
+            </div>
+        </div>
+        <div class="game-controls">
+            <button onclick="initGame()">Restart</button>
+        </div>
+        <div class="card-area">
+            <div class="card" id="0" onClick="useCard(0)">1</div>
+            <div class="card" id="1" onClick="useCard(1)">2</div>
+            <div class="card" id="2" onClick="useCard(2)">3</div>
+            <div class="card" id="3" onClick="useCard(3)">4</div>
+            <div class="card" id="4" onClick="useCard(4)">5</div>
+            <div class="card" id="5" onClick="useCard(5)">6</div>
+            <div class="card" id="6" onClick="useCard(6)">7</div>
+            <div class="card" id="7" onClick="useCard(7)">8</div>
+            <div class="card" id="8" onClick="useCard(8)">9</div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
