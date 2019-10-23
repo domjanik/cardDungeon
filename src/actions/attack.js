@@ -13,7 +13,7 @@ function attack(targetId) {
             card.value -= userStats.userAttack;
             if(card.value === 0) {
                 cardId++;
-                cardTable[targetId] = new Card(cardTypes.GOLD, card.value, cardId);
+                cardTable[targetId] = new Card(cardTypes.GOLD, card.initValue, cardId);
             }
             setAttack(0);
             renderField(targetId);

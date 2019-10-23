@@ -1,22 +1,13 @@
 const userStats = {
     overallGold: 0,
-    currentHP: 10,
+    currentHP: 0,
     maxHP: 10,
     userAttack: 0
-}
+};
+
 let cardId = 0;
 
-const cardTable = [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-]
+let cardTable = [];
 
 
 function createRandomCard() {
@@ -27,6 +18,14 @@ function createRandomCard() {
     let value = Math.floor((Math.random() % 10) * 10) + 1;
     cardId++;
     return new Card(cardTypes[cardType.name], value, cardId);
+}
+
+function generateClearMap() {
+    cardTable = [];
+
+    for(var i = 0; i < 9; i++) {
+        cardTable.push(null);
+    }
 }
 
 function generateMap() {
@@ -74,10 +73,9 @@ function getCurrentUserPosition() {
 
 function initGame() {
     setGold(0);
-    let elemHp = document.getElementById('user-health');
-    elemHp.innerHTML = userStats.currentHP;
-    let elemAtk = document.getElementById('user-attack');
-    elemAtk.innerHTML = userStats.userAttack;
+    setHP(10);
+    setAttack(0);
+    generateClearMap();
     generateMap();
 }
 
