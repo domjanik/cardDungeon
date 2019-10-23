@@ -32,7 +32,10 @@ function useCard(targetId) {
 
 function performCardAction(targetId) {
     if(cardTable[targetId].action) {
-        cardTable[targetId].action(targetId)
+        cardTable[targetId].action(targetId);
+        if(cardTable[targetId].afterAction) {
+            cardTable[targetId].afterAction(targetId);
+        }
     } else {
         console.error('Error in actions');
     }

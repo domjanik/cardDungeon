@@ -8,10 +8,12 @@ class Card {
             this.initValue = value;
         }
         this.action = type.action;
+        this.afterAction = type.afterAction;
         this.icon = type.icon;
     }
 
     action = () => {};
+    afterAction = null;
     type = '';
     value = 0;
     initValue = 0;
