@@ -5,9 +5,9 @@ function getMoveDirection(oldIndex, targetIndex) {
         return 'right';
     } else if (indexDiff === -1) {
         return 'left';
-    } else if (indexDiff === -3) {
+    } else if (indexDiff === -rowLength) {
         return 'up';
-    } else if (indexDiff === 3) {
+    } else if (indexDiff === rowLength) {
         return 'down';
     } else {
         console.error('getMoveDirection : Invalid directions');
@@ -15,14 +15,14 @@ function getMoveDirection(oldIndex, targetIndex) {
 }
 
 function moveRow(moveDirection, targetUserIndex, oldUserIndex) {
-    const rowIndex = Math.floor(targetUserIndex / 3);
+    const rowIndex = Math.floor(targetUserIndex / rowLength);
     const rowIndexes = [];
-    for (i = 0; i < 3; i++) {
-        rowIndexes.push((rowIndex * 3) + i);
+    for (i = 0; i < rowLength; i++) {
+        rowIndexes.push((rowIndex * rowLength) + i);
     }
     if (moveDirection === 'right') {
-        if ((oldUserIndex + 1) % 3 !== 1) {
-            for (let i = 2; i >= 0; i--) {
+        if ((oldUserIndex + 1) % rowLength !== 1) {
+            for (let i = (rowLength - 1); i >= 0; i--) {
                 let cardIndex = rowIndexes[i];
                 if (i === 0) {
                     cardTable[cardIndex] = createRandomCard();
@@ -37,10 +37,10 @@ function moveRow(moveDirection, targetUserIndex, oldUserIndex) {
             renderField(oldUserIndex);
         }
     } else if (moveDirection === 'left') {
-        if ((oldUserIndex + 1) % 3 !== 0) {
-            for (let i = 0; i <= 2; i++) {
+        if ((oldUserIndex + 1) % rowLength !== 0) {
+            for (let i = 0; i <= (rowLength - 1); i++) {
                 let cardIndex = rowIndexes[i];
-                if (i === 2) {
+                if (i === (rowLength - 1)) {
                     cardTable[cardIndex] = createRandomCard();
                     renderField(cardIndex);
                 } else if (targetUserIndex < cardIndex) {
@@ -56,17 +56,17 @@ function moveRow(moveDirection, targetUserIndex, oldUserIndex) {
 }
 
 function moveColumn(moveDirection, targetUserIndex, oldUserIndex) {
-    const columnIndex = (targetUserIndex % 3);
+    const columnIndex = (targetUserIndex % rowLength);
     if (moveDirection === 'down') {
-        if (oldUserIndex > 2) {
-            for (let i = 2; i >= 0; i--) {
-                const cardIndex = (i * 3) + columnIndex;
+        if (oldUserIndex > (rowLength - 1)) {
+            for (let i = (rowLength - 1); i >= 0; i--) {
+                const cardIndex = (i * rowLength) + columnIndex;
                 if (i === 0) {
                     cardTable[cardIndex] = createRandomCard();
                     renderField(cardIndex);
                 } else {
                     if (targetUserIndex > cardIndex) {
-                        cardTable[cardIndex] = cardTable[cardIndex - 3];
+                        cardTable[cardIndex] = cardTable[cardIndex - rowLength];
                         renderField(cardIndex);
                     }
                 }
@@ -76,15 +76,15 @@ function moveColumn(moveDirection, targetUserIndex, oldUserIndex) {
             renderField(oldUserIndex);
         }
     } else if (moveDirection === 'up') {
-        if (oldUserIndex < 7) {
-            for (let i = 0; i <= 2; i++) {
-                const cardIndex = (i * 3) + columnIndex;
-                if (i === 2) {
+        if (oldUserIndex < (cardAmount - rowLength + 1)) {
+            for (let i = 0; i <= (rowLength - 1); i++) {
+                const cardIndex = (i * rowLength) + columnIndex;
+                if (i === (rowLength - 1)) {
                     cardTable[cardIndex] = createRandomCard();
                     renderField(cardIndex);
                 } else {
                     if (targetUserIndex < cardIndex) {
-                        cardTable[cardIndex] = cardTable[cardIndex + 3];
+                        cardTable[cardIndex] = cardTable[cardIndex + rowLength];
                         renderField(cardIndex);
                     }
                 }

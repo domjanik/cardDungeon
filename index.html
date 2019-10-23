@@ -8,7 +8,8 @@
     <script src="src/actions/move.js"></script>
     <script src="src/actions/addHP.js"></script>
     <script src="src/actions/wait.js"></script>
-    <script src="src/card.js"></script>
+    <script src="src/utils/card.js"></script>
+    <script src="src/utils/mapControls.js"></script>
     <script src="src/dungeon.js"></script>
     <script src="src/const/cardTypes.js"></script>
     <script src="src/const/chanceTable.js"></script>
@@ -20,7 +21,7 @@
 </head>
 <body onload="initGame()">
 <div class="game-area">
-    <div class="game-table">
+    <div class="game-table" id="game-table">
         <div class="game-stats">
             <div class="info-label">
                  <div class="icon-rich"></div>
@@ -36,18 +37,9 @@
             </div>
         </div>
         <div class="game-controls">
-            <button onclick="initGame()">Restart</button>
+            <button onclick="restart()">Restart</button>
         </div>
-        <div class="card-area">
-            <div class="card" id="0" onClick="useCard(0)">1</div>
-            <div class="card" id="1" onClick="useCard(1)">2</div>
-            <div class="card" id="2" onClick="useCard(2)">3</div>
-            <div class="card" id="3" onClick="useCard(3)">4</div>
-            <div class="card" id="4" onClick="useCard(4)">5</div>
-            <div class="card" id="5" onClick="useCard(5)">6</div>
-            <div class="card" id="6" onClick="useCard(6)">7</div>
-            <div class="card" id="7" onClick="useCard(7)">8</div>
-            <div class="card" id="8" onClick="useCard(8)">9</div>
+        <div class="card-area" id="card-area">
         </div>
     </div>
 </div>

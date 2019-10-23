@@ -5,8 +5,9 @@ const userStats = {
     userAttack: 0
 };
 
+let cardAmount = 9;
+let rowLength = Math.ceil(Math.sqrt(cardAmount));
 let cardId = 0;
-
 let cardTable = [];
 
 
@@ -20,35 +21,12 @@ function createRandomCard() {
     return new Card(cardTypes[cardType.name], value, cardId);
 }
 
-function generateClearMap() {
-    cardTable = [];
-
-    for(var i = 0; i < 9; i++) {
-        cardTable.push(null);
-    }
-}
-
-function generateMap() {
-    cardTable[4] = new Card(cardTypes.USER);
-    renderField(4);
-    for (var i = 0; i < 9; i++) {
-        if (!cardTable[i]) {
-            const card = createRandomCard();
-            cardTable[i] = card;
-            renderField(i);
-        }
-    }
-
-}
-
-function renderField(targetId) {
-    let elem = document.getElementById(targetId);
-    elem.innerHTML = `<div class="icon-${cardTable[targetId].icon}"></div> ${cardTable[targetId].value ? cardTable[targetId].value : ' '}`
-}
 
 function useCard(targetId) {
     if (userStats.currentHP > 0 && isFieldAvailable(targetId)) {
         performCardAction(targetId);
+    } else {
+        console.error('Card not available!')
     }
 }
 
@@ -56,25 +34,21 @@ function performCardAction(targetId) {
     if(cardTable[targetId].action) {
         cardTable[targetId].action(targetId)
     } else {
-        console.log('ERROR IN ACTIONS');
+        console.error('Error in actions');
     }
 }
 
-function isFieldAvailable(targetId) {
-    let userPosition = getCurrentUserPosition();
-    return (targetId === userPosition + 1 || targetId === userPosition - 1 || targetId === userPosition + 3 || targetId === userPosition - 3)
-}
-
-function getCurrentUserPosition() {
-    return cardTable.indexOf(cardTable.find((card) => card ? card.name === cardTypes.USER.name : false));
-}
 
 function initGame() {
     setGold(0);
     setHP(10);
     setAttack(0);
-    generateClearMap();
     generateMap();
+}
+
+function restart() {
+    clearMap();
+    initGame();
 }
 
 function gameOver() {
@@ -82,17 +56,16 @@ function gameOver() {
     alert('You loose');
 }
 
-
 document.onkeydown = function (e) {
     let targetId = getCurrentUserPosition();
     if(e.keyCode === 37) {
         targetId -= 1;
     } else if (e.keyCode === 40) {
-        targetId += 3;
+        targetId += rowLength;
     } else if (e.keyCode === 39) {
         targetId += 1;
     } else if (e.keyCode === 38) {
-        targetId -= 3;
+        targetId -= rowLength;
     } else {
         return;
     }
