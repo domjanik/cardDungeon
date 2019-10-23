@@ -9,6 +9,7 @@ class Card {
         }
         this.color = type.color;
         this.action = type.action;
+        this.icon = type.icon;
     }
 
     action = () => {};
@@ -18,4 +19,5 @@ class Card {
     initValue = 0;
     name = '';
     id = 0;
+    icon = '';
 }

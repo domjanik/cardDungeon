@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?oljt9c');
-  src:  url('fonts/icomoon.eot?oljt9c#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?oljt9c') format('truetype'),
-    url('fonts/icomoon.woff?oljt9c') format('woff'),
-    url('fonts/icomoon.svg?oljt9c#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?25jsdj');
+  src:  url('fonts/icomoon.eot?25jsdj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?25jsdj') format('truetype'),
+    url('fonts/icomoon.woff?25jsdj') format('woff'),
+    url('fonts/icomoon.svg?25jsdj#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -33,4 +33,25 @@
 }
 .icon-rich:before {
   content: "\e902";
+}
+.icon-spooky:before {
+  content: "\e903";
+}
+.icon-poison:before {
+  content: "\e904";
+}
+.icon-love-potion:before {
+  content: "\e905";
+}
+.icon-treasure:before {
+  content: "\e906";
+}
+.icon-knight:before {
+  content: "\e907";
+}
+.icon-coin:before {
+  content: "\e908";
+}
+.icon-sword:before {
+  content: "\e909";
 }

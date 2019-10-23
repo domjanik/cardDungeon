@@ -2,36 +2,43 @@ const cardTypes = {
     USER: {
         name: 'user',
         color: '#bbbbbb',
-        action: wait
+        action: wait,
+        icon: 'knight'
     },
     BLANK: {
-        name: 'Blank',
+        name: 'blank',
         color: '#ff99cc',
-        action: move
+        action: move,
+        icon: ''
     },
     SWORD: {
         name: 'sword',
         color: '#006666',
-        action: addWeapon
+        action: addWeapon,
+        icon: 'sword'
     },
     GOLD: {
         name: 'gold',
         color: '#eeee00',
-        action: addGold
+        action: addGold,
+        icon: 'coin'
     },
     MONSTER: {
         name: 'monster',
         color: '#ff3333',
-        action: attack
+        action: attack,
+        icon: 'spooky'
     },
     POTION: {
         name: 'potion',
         color: '#008800',
-        action: addHP
+        action: addHP,
+        icon: 'love-potion'
     },
     CHEST: {
         name: 'chest',
         color: '#0088ff',
-        action: openChest
+        action: openChest,
+        icon: 'treasure'
     }
 };

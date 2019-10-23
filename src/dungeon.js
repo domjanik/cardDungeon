@@ -43,8 +43,9 @@ function generateMap() {
 
 function renderField(targetId) {
     let elem = document.getElementById(targetId);
-    elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value + ' ' : '');
-    elem.style.backgroundColor = cardTable[targetId].color;
+    // elem.innerHTML = cardTable[targetId].name + (cardTable[targetId].type ? ' ' + cardTable[targetId].value + ' ' : '');
+    elem.innerHTML = `<div class="icon-${cardTable[targetId].icon}"></div> ${cardTable[targetId].name !== 'user' && cardTable[targetId].name !== 'blank' ? cardTable[targetId].value : ''}`
+    // elem.style.backgroundColor = cardTable[targetId].color;
 
 }
 
