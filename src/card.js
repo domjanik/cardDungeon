@@ -7,13 +7,11 @@ class Card {
             this.value = value;
             this.initValue = value;
         }
-        this.color = type.color;
         this.action = type.action;
         this.icon = type.icon;
     }
 
     action = () => {};
-    color = '';
     type = '';
     value = 0;
     initValue = 0;
