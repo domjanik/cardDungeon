@@ -13,12 +13,6 @@
     min-height: 410px;
 }
 
-@media screen and (max-width: 600px) {
-    .game-table {
-        width: 100% !important;
-    }
-}
-
 .game-controls {
     display: flex;
     padding: 5px;
@@ -83,4 +77,13 @@
 .info-label div {
     display: inline-block;
 
+}
+
+@media screen and (max-width: 600px) {
+    .game-table {
+        width: 100% !important;
+    }
+    .card {
+        min-width: unset;
+    }
 }
