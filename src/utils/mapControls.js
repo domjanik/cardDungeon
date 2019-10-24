@@ -33,6 +33,9 @@ function createCardField(id, targetAmount) {
 function renderField(targetId) {
     let elem = document.getElementById(targetId);
     elem.innerHTML = `<div class="icon-${cardTable[targetId].icon}"></div> ${cardTable[targetId].value ? cardTable[targetId].value : ' '}`
+    if (cardTable[targetId].name === 'user') {
+       elem.style.backgroundColor = "#FBEB04";
+    }
 }
 
 function isFieldAvailable(targetId) {
