@@ -5,7 +5,7 @@ const userStats = {
     userAttack: 0
 };
 
-let cardAmount = 9;
+let cardAmount = 16;
 let rowLength = Math.ceil(Math.sqrt(cardAmount));
 let cardId = 0;
 let cardTable = [];
@@ -31,9 +31,9 @@ function useCard(targetId) {
 }
 
 function performCardAction(targetId) {
-    if(cardTable[targetId].action) {
+    if (cardTable[targetId].action) {
         cardTable[targetId].action(targetId);
-        if(cardTable[targetId].afterAction) {
+        if (cardTable[targetId].afterAction) {
             cardTable[targetId].afterAction(targetId);
         }
     } else {
@@ -60,17 +60,19 @@ function gameOver() {
 }
 
 document.onkeydown = function (e) {
-    let targetId = getCurrentUserPosition();
-    if(e.keyCode === 37) {
-        targetId -= 1;
-    } else if (e.keyCode === 40) {
-        targetId += rowLength;
-    } else if (e.keyCode === 39) {
-        targetId += 1;
-    } else if (e.keyCode === 38) {
-        targetId -= rowLength;
-    } else {
-        return;
+    if (!shownModal) {
+        let targetId = getCurrentUserPosition();
+        if (e.keyCode === 37) {
+            targetId -= 1;
+        } else if (e.keyCode === 40) {
+            targetId += rowLength;
+        } else if (e.keyCode === 39) {
+            targetId += 1;
+        } else if (e.keyCode === 38) {
+            targetId -= rowLength;
+        } else {
+            return;
+        }
+        useCard(targetId)
     }
-    useCard(targetId)
 };

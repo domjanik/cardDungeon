@@ -1,0 +1,21 @@
+button {
+    height: 30px;
+    background-color: #CE313B;
+    border: 0;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    transition: background-color ease-in-out 0.2s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #D96168;
+}
+
+button.save {
+    background-color: #21B735;
+}
+button.save:hover {
+    background-color: #60E372;
+}

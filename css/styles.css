@@ -16,20 +16,7 @@
 .game-controls {
     display: flex;
     padding: 5px;
-}
-
-.game-controls button {
-    height: 30px;
-    background-color: #CE313B;
-    border: 0;
-    border-radius: 3px;
-    color: white;
-    cursor: pointer;
-    transition: background-color ease-in-out 0.2s;
-}
-
-.game-controls button:hover {
-    background-color: #D96168;
+    justify-content: space-around;
 }
 
 .card-area {
@@ -85,5 +72,9 @@
     }
     .card {
         min-width: unset;
+    }
+
+    .settings-button {
+        display: none;
     }
 }

@@ -20,7 +20,11 @@
     <script src="src/utils/setHP.js"></script>
 
     <script src="src/dungeon.js"></script>
+
+    <script src="src/controls/settingsModal.js"></script>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/button.css" rel="stylesheet" type="text/css">
+    <link href="css/modal.css" rel="stylesheet" type="text/css">
     <link href="css/icon-font.css" rel="stylesheet" type="text/css">
 </head>
 <body onload="initGame()">
@@ -42,8 +46,26 @@
         </div>
         <div class="game-controls">
             <button onclick="restart()">Restart</button>
+            <button onclick="showModal()" class="settings-button">Settings</button>
         </div>
         <div class="card-area" id="card-area">
+        </div>
+    </div>
+
+    <div class="modal-window" id="settings-modal">
+        <div class="overlay" onclick="hideModal()">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <div class="modal-header">
+                    Settings
+                </div>
+                <div class="modal-body">
+                    Table row size : <input type="number" id="table-size"/>
+                </div>
+                <div class="modal-footer">
+                    <button class="save" onclick="saveTableSize()">Save</button>
+                    <button onclick="hideModal()">Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
