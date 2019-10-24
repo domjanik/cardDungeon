@@ -13,8 +13,8 @@ function showModal() {
 
 function saveTableSize() {
     let elem = document.getElementById('table-size');
-    cardAmount = elem.value * elem.value;
-    rowLength = elem.value;
+    rowLength = Number(elem.value);
+    cardAmount =  rowLength*rowLength;
     restart();
     hideModal()
 }
