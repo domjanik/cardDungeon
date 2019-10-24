@@ -5,7 +5,7 @@ const userStats = {
     userAttack: 0
 };
 
-let cardAmount = 16;
+let cardAmount = 9;
 let rowLength = Math.ceil(Math.sqrt(cardAmount));
 let cardId = 0;
 let cardTable = [];
