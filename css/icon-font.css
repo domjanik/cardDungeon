@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?25jsdj');
-  src:  url('fonts/icomoon.eot?25jsdj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?25jsdj') format('truetype'),
-    url('fonts/icomoon.woff?25jsdj') format('woff'),
-    url('fonts/icomoon.svg?25jsdj#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?20zcf7');
+  src:  url('fonts/icomoon.eot?20zcf7#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?20zcf7') format('truetype'),
+    url('fonts/icomoon.woff?20zcf7') format('woff'),
+    url('fonts/icomoon.svg?20zcf7#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-settings:before {
+  content: "\e90a";
+}
+.icon-cross:before {
+  content: "\e90b";
+}
+.icon-add:before {
+  content: "\e90c";
+}
+.icon-substract:before {
+  content: "\e90d";
+}
+.icon-magnifying-glass:before {
+  content: "\e90e";
+}
+.icon-crown:before {
+  content: "\e90f";
+}
 .icon-swords:before {
   content: "\e900";
 }
