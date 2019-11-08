@@ -26,7 +26,7 @@ function createCardField(id, targetAmount) {
             useCard(id)
         }
     );
-    node.innerHTML = 'test';
+    node.innerHTML = 'test ';
     document.getElementById("card-area").appendChild(node);
 }
 
